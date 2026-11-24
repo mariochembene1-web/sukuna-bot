@@ -1,0 +1,49 @@
+// TABELA_PAGAMENTO_TOPO - POR GRUPO
+if(cmd==='.settabela'||cmd==='.tabela'||cmd==='tabela'||cmd==='.setpagamento'||cmd==='.pagamento'||cmd==='pagamento'){
+ try{
+  const fs2=require('fs');
+  const load=(f)=>{try{return JSON.parse(fs2.readFileSync(f));}catch{return {};}};
+  const save2=(f,o)=>{fs2.writeFileSync(f,JSON.stringify(o));};
+  let tabelas=load('tabelas.json');
+  let pags=load('pagamentos.json');
+  // SETTABELA - só ADM
+  if(cmd==='.settabela'){
+   let a=false;
+   try{let mt=await sock.groupMetadata(from);let p=mt.participants.find(x=>(x.id||'').split('@')[0].split(':')[0]===senderNum);if(p?.admin) a=true;}catch{}
+   if(DONOS.includes(senderNum)) a=true;
+   if(!a){await sock.sendMessage(from,{text:'❌ *Só ADM pode mudar a tabela!*\n👑 Mário Oficialz'},{quoted:m});return;}
+   let resto2=String(texto||'').split('\n').slice(1).join('\n').trim();
+   if(!resto2){await sock.sendMessage(from,{text:'❌ Usa assim:\n*.settabela*\n1GB - 50MT\n2GB - 90MT'},{quoted:m});return;}
+   tabelas[from]=resto2; save2('tabelas.json',tabelas);
+   await sock.sendMessage(from,{text:'✅ *TABELA GUARDADA!* 📋\n\n━━━━━━━━━━━━━━\n'+resto2+'\n━━━━━━━━━━━━━━\n\n👑 *SUKUNA MESTRE*'},{quoted:m});
+   return;
+  }
+  // SETPAGAMENTO - só ADM
+  if(cmd==='.setpagamento'){
+   let a=false;
+   try{let mt=await sock.groupMetadata(from);let p=mt.participants.find(x=>(x.id||'').split('@')[0].split(':')[0]===senderNum);if(p?.admin) a=true;}catch{}
+   if(DONOS.includes(senderNum)) a=true;
+   if(!a){await sock.sendMessage(from,{text:'❌ *Só ADM pode mudar o pagamento!*'},{quoted:m});return;}
+   let resto2=String(texto||'').split('\n').slice(1).join('\n').trim();
+   if(!resto2){await sock.sendMessage(from,{text:'❌ Usa assim:\n*.setpagamento*\n🏦 E-Mola: 865697467 - Mário'},{quoted:m});return;}
+   pags[from]=resto2; save2('pagamentos.json',pags);
+   await sock.sendMessage(from,{text:'✅ *PAGAMENTO GUARDADO!* 💰\n\n━━━━━━━━━━━━━━\n'+resto2+'\n━━━━━━━━━━━━━━'},{quoted:m});
+   return;
+  }
+  // VER TABELA - só deste grupo
+  if(cmd==='.tabela'||cmd==='tabela'){
+   let tb=tabelas[from];
+   if(!tb){await sock.sendMessage(from,{text:'📋 *TABELA VAZIA* 📋\n\n> *Pede ao ADM para colocar a tabela!* 🙏\n\n👑 *SUKUNA MESTRE*'},{quoted:m});return;}
+   await sock.sendMessage(from,{text:'📋 *TABELA DE MEGAS - SUKUNA MESTRE* 📋\n\n━━━━━━━━━━━━━━\n'+tb+'\n━━━━━━━━━━━━━━\n\n💰 *Para comprar:* Manda *.comprar*\n📞 *Dono:* Mário Oficialz - 865679467\n\n✨ *SUKUNA MESTRE*'},{quoted:m});
+   return;
+  }
+  // VER PAGAMENTO - só deste grupo
+  if(cmd==='.pagamento'||cmd==='pagamento'){
+   let pg=pags[from];
+   if(!pg){await sock.sendMessage(from,{text:'💰 *PAGAMENTO VAZIO* 💰\n\n> *Pede ao ADM para colocar as formas de pagamento!* 🙏\n\n👑 *SUKUNA MESTRE*'},{quoted:m});return;}
+   await sock.sendMessage(from,{text:'💰 *FORMAS DE PAGAMENTO - SUKUNA MESTRE* 💰\n\n━━━━━━━━━━━━━━\n'+pg+'\n━━━━━━━━━━━━━━\n\n📸 *Depois manda o comprovativo!*\n👑 *Dono:* Mário Oficialz'},{quoted:m});
+   return;
+  }
+ }catch(e){console.log('TABELA ERRO',e.message);}
+ return;
+}

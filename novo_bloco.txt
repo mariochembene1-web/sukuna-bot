@@ -1,0 +1,27 @@
+// ===== NOVO DETECTOR SMS - SEPARADO DO ANTIGO =====
+if (!global.smsPendentes) global.smsPendentes = {};
+sock.ev.on('messages.upsert', async ({ messages }) => {
+  try {
+    if (!global.detectorSMS) return;
+    const m2 = messages[0];
+    if (!m2 || !m2.message) return;
+    if (m2.key.fromMe) return;
+    const from2 = m2.key.remoteJid;
+    if (!from2.endsWith('@g.us')) return;
+    const img = m2.message.imageMessage;
+    if (!img) return;
+    const legenda = (img.caption || '').toUpperCase();
+    if (!legenda.includes('COMPROVATIVO') && !legenda.includes('PP') && !legenda.includes('DK')) return;
+    const mChave = legenda.match(/\b(PP\d{2,}\.\d{2,}\.[A-Z0-9]{4,}|DK[A-Z0-9]{8,10})\b/i);
+    const mValor = legenda.match(/(\d+[.,]\d{2})\s*MT/i) || legenda.match(/(\d+)\s*MT/i);
+    if (!mChave || !mValor) return;
+    const chave2 = mChave[0].toUpperCase();
+    const valor2 = parseFloat(mValor[1].replace(',', '.'));
+    const quem2 = m2.key.participant || m2.participant || '';
+    if (global.smsPendentes[chave2]) return;
+    global.smsPendentes[chave2] = { grupo: from2, quem: quem2, chave: chave2, valor: valor2, etapa: 'aguardar_sms', hora: Date.now() };
+    await sock.sendMessage(from2, { text: `⏳ *AGUARDAR CONFIRMAÇÃO DO VALOR...*\n\nChave: ${chave2}\nValor: ${valor2} MT\n\n> Comprovativo recebido!\n> Ainda nao recebi a SMS a confirmar este valor.\n> Aguarde, assim que a SMS chegar eu aprovo automaticamente.\n\nSUKUNA MESTRE`, mentions: [quem2] }, { quoted: m2 });
+  } catch(e) { console.log('Erro novo detector:', e.message); }
+});
+// ===== FIM NOVO DETECTOR SMS =====
+

@@ -1,0 +1,83 @@
+👑 *SUKUNA MESTRE - MENU ADM* 👑
+━━━━━━━━━━━━━━━━━━
+
+💰 *PAGAMENTOS*
+▪️ .pendentes — Ver pagamentos à espera
+▪️ .confirmar [chave] — Confirmar e mandar Megas
+▪️ .rejeitar [chave] — Rejeitar comprovativo falso
+
+🏆 *COMPRAS / RANKING*
+▪️ .compra 512mb — Registar compra
+▪️ .anular 400mb — Anular compra por engano
+▪️ .clientes — Ranking de compras de hoje
+
+📒 *FIADOS / DÍVIDAS*
+▪️ .fiado 100 @João — Registar fiado
+▪️ .devem — Ver quem deve
+▪️ .pagou @João — Marcar como pago
+▪️ .rankativo — Top 10 mais ativos 🔥
+▪️ .rankinativos — Top 10 mais fantasmas 👻
+
+🌡️ *ALERTA CALOR*
+▪️ .alertacalor on — Ligar aviso de calor
+▪️ .alertacalor off — Desligar aviso
+▪️ .alertacalor testar — Ver agora
+
+🔍 *DETECTOR*
+▪️ .detector on — Ligar detector
+▪️ .detector off — Desligar detector
+
+🛡️ *PROTEÇÃO DO GRUPO*
+▪️ .antilink on / off — Apaga links de outros grupos
+▪️ .antisticker on / off — Apaga figurinhas
+▪️ .antiaudio on / off — Apaga áudios
+▪️ .antivideo on / off — Apaga vídeos 🎥
+▪️ .antifoto on / off — Apaga fotos 📸
+▪️ .antimencao on / off — Apaga quem marca todos
+▪️ .antipalavrao on / off — Apaga palavrões
+▪️ .anticonc on / off — Anti-concorrência
+
+🔒 *CONTROLO DO GRUPO*
+▪️ .fechar — Só ADM fala
+▪️ .abrir — Todos podem falar
+▪️ .ban @pessoa — Banir / remover
+▪️ .promover @pessoa — Promover a ADM
+▪️ .rebaixar @pessoa — Tirar ADM
+
+📊 *TABELAS & PREÇOS*
+▪️ .settabela — Colocar tabela de preços
+▪️ .tabela — Ver tabela principal
+▪️ .setpreco — Mudar tabela rápida
+▪️ .verpreco — Ver tabela rápida
+▪️ .setpagamento — Colocar E-Mola / M-Pesa
+▪️ .dono — Ver contacto do dono
+
+👋 *BEM-VINDO*
+▪️ .welcome on / off — Boas-vindas do grupo
+▪️ .wcentral on / off — Welcome do PARAÍSO 🏝️
+
+👑 *ATIVAÇÃO*
+▪️ .ativar 5 — Ativar grupo por 5 dias (só dono)
+▪️ .desativar — Desativar grupo
+▪️ .verificar — Ver dias que faltam
+▪️ .verificar todos — Todos os grupos ativos (só dono)
+
+🤖 *BOT*
+▪️ .foto Ronaldo — Foto de famoso 📸
+▪️ .ping — Ver se bot está online
+▪️ .clima Matola — Clima de Moçambique 🌦️
+▪️ .bot — Info do bot
+▪️ .menu — Mostrar este menu
+▪️ .entrar [link] — Bot entra num grupo
+▪️ .info — Tabela + pagamento juntos
+▪️ Tabela — Ver tabela de Megas
+▪️ Pagamento — Ver formas de pagamento
+
+━━━━━━━━━━━━━━━━━━
+📅 *TABELA SEMANAL*
+▪️ .setsemanal — Configurar tabela semanal
+▪️ Semanal — Consultar tabela semanal
+
+━━━━━━━━━━━━━━━━━━
+💡 *COMO CONFIRMAR:* Responde a msg do cliente e manda .confirmar ou .confirmar PP123...
+👑 *SUKUNA MESTRE*

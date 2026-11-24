@@ -1,0 +1,74 @@
+👑 *SUKUNA MESTRE - MENU ADM*
+
+━━━━━━━━━━━━━━
+📊 *PAGAMENTOS*
+▪️ .pendentes = Ver pagamentos à espera de confirmação
+▪️ .confirmar [chave] = Confirmar pagamento e mandar os Megas ao cliente
+▪️ .rejeitar [chave] = Rejeitar comprovativo falso / errado
+
+🏆 *COMPRAS / RANKING*
+▪️ .compra 512mb = Registar compra de um cliente
+▪️ .anular 400mb = Anular uma compra que foi registada por engano
+▪️ .clientes = Ver ranking de compras de hoje
+
+📒 *FIADOS / DÍVIDAS*
+▪️ .fiado 100 @João = Registar fiado
+▪️ .devem = Ver quem deve
+▪️ .pagou @João = Marcar como pago
+▪️ .rankativo = Top 10 mais ativos do grupo 🔥
+▪️ .rankinativos = Top 10 mais fantasmas / que não falam 👻
+
+🔍 *DETECTOR*
+▪️ .detector on = Ligar detector de comprovativos
+▪️ .detector off = Desligar detector de comprovativos
+
+🛡️ *GRUPO*
+▪️ .antilink on / off = Ligar / desligar anti-link (apaga links de outros grupos)
+▪️ .antisticker on / off = Ligar / desligar anti-sticker (apaga figurinhas)
+▪️ .antiaudio on / off = Ligar / desligar anti-audio (apaga áudios)
+▪️ .antimencao on / off = Ligar / desligar anti-menção (apaga quem marca todos)
+▪️ .antipalavrao on / off = Ligar / desligar anti-palavrão (apaga palavrões)
+▪️ .anticonc on / off = Ligar / desligar anti-concorrência
+▪️ .fechar = Fechar o grupo, só ADM fala
+▪️ .abrir = Abrir o grupo, todos podem falar
+▪️ .ban @pessoa = Banir / remover pessoa do grupo
+▪️ .promover @pessoa = Promover pessoa a ADM
+▪️ .rebaixar @pessoa = Tirar ADM da pessoa
+▪️ .settabela = ADM coloca a tabela de preços
+▪️ .tabela = Ver tabela principal
+▪️ .setpreco = Mudar tabela rapida Ex: .setpreco 23 1080MB
+▪️ .verpreco = Ver tabela rapida
+▪️ .setpagamento = ADM coloca números de pagamento (E-Mola / M-Pesa)
+▪️ .dono = Ver contacto do dono do bot
+
+👋 *BEM-VINDO*
+▪️ .welcome on = Ligar boas-vindas neste grupo
+▪️ .welcome off = Desligar boas-vindas neste grupo
+▪️ .wcentral on = Ligar welcome do PARAÍSO 🏝️
+▪️ .wcentral off = Voltar para welcome normal de MBs
+
+👑 *ATIVAÇÃO*
+▪️ .ativar 5 = Ativar grupo por 5 dias (só dono)
+▪️ .desativar = Desativar grupo, bot para de funcionar lá
+▪️ .verificar = Ver quantos dias faltam para o grupo expirar
+▪️ .verificar todos = Ver todos os grupos ativos (só dono)
+
+🤖 *BOT*
+▪️ .foto Ronaldo = Mandar foto de qualquer famoso 📸
+▪️ .ping = Ver se bot está online
+▪️ .clima Matola = Ver clima de Moçambique 🌦️
+▪️ .bot = Ver informações do bot
+▪️ .menu = Mostrar este menu
+▪️ .entrar [link] = Bot entra num grupo pelo link
+▪️ .info = Ver tabela + pagamento juntos
+▪️ Tabela = Ver tabela de Megas
+▪️ Pagamento = Ver formas de pagamento
+
+━━━━━━━━━━━━━━
+📅 *TABELA SEMANAL*
+▪️ .setsemanal = ADM configura / atualiza a tabela semanal
+▪️ Semanal = Todos consultam a tabela semanal
+
+━━━━━━━━━━━━━━
+💡 *COMO CONFIRMAR:* Responde a msg do cliente e manda .confirmar ou .confirmar PP123...
+👑 *SUKUNA MESTRE*

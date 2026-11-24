@@ -1,0 +1,7 @@
+
+--- CATCH 2026-11-24T21:12:32.357Z ---
+isGrupo is not defined
+--- CATCH 2026-11-24T21:13:01.203Z ---
+isGrupo is not defined
+--- 2026-11-24T21:15:07.209Z STATUS 404 ---
+{"error":{"message":"The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.","type":"invalid_request_error","code":"model_not_found"}}

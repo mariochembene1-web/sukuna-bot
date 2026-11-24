@@ -1,0 +1,18 @@
+// BAN_TOPO
+if(cmd==='.ban'||cmd==='.kick'){
+ try{
+  let a=false;
+  try{let mt=await sock.groupMetadata(from);let p=mt.participants.find(x=>(x.id||'').split('@')[0].split(':')[0]===senderNum);if(p?.admin) a=true;}catch{}
+  if(DONOS.includes(senderNum)) a=true;
+  if(!a){await sock.sendMessage(from,{text:'❌ Só ADM pode banir!'},{quoted:m});return;}
+  let c=m.message?.extendedTextMessage?.contextInfo||{};
+  let al=c.participant||c.mentionedJid?.[0]||null;
+  if(!al){let n=String(texto||'').split(' ')[1]||'';n=n.replace(/[^0-9]/g,'');if(n) al=n+'@s.whatsapp.net';}
+  if(!al){await sock.sendMessage(from,{text:'❌ Usa: .ban @pessoa'},{quoted:m});return;}
+  let an=String(al).split('@')[0];
+  if(an.endsWith('865697467')){await sock.sendMessage(from,{text:'❌ Não podes banir o Dono! 👑'},{quoted:m});return;}
+  await sock.sendMessage(from,{text:'🚨 *BANIDO PELO SUKUNA*\n\n👤 @'+an+'\n👑 Por: @'+senderNum+'\n👤 Dono: Mário Oficialz',mentions:[al,sender]});
+  await sock.groupParticipantsUpdate(from,[al],'remove');
+ }catch(e){console.log('BAN ERRO',e.message);}
+ return;
+}

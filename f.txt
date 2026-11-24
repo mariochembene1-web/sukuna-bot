@@ -1,0 +1,11 @@
+// BOT_PING_BONITO_TOPO
+if(cmd==='.bot'||cmd==='.ping'||cmd==='bot'){
+ try{
+  if(cmd==='.ping'){
+   await sock.sendMessage(from,{text:'🏓 *PONG!* ✅\n\n━━━━━━━━━━━━━━\n🤖 *Bot:* SUKUNA MESTRE\n⚡ *Status:* Online\n👑 *Dono:* Mário Oficialz\n━━━━━━━━━━━━━━\n\n✨ *SUKUNA MESTRE*'},{quoted:m});
+  }else{
+   await sock.sendMessage(from,{text:'🤖 *SUKUNA MESTRE* 🤖\n\n━━━━━━━━━━━━━━\n✅ *Status:* Online\n👑 *Dono:* Mário Oficialz\n📞 *WhatsApp:* 865679467\n⚡ *Versão:* SUKUNA V2\n━━━━━━━━━━━━━━\n\n> *Estou a funcionar neste grupo!*\n\n✨ *SUKUNA MESTRE*'},{quoted:m});
+  }
+ }catch(e){}
+ return;
+}

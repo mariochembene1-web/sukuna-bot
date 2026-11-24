@@ -1,0 +1,19 @@
+// ID_POR_GRUPO - CADA GRUPO COM SEU ID
+if(cmd==='.id' || cmd==='.meuid' || cmd==='.grupoid' || cmd==='id'){
+ try{
+  const fs2=require('fs');
+  const load=(f)=>{try{return JSON.parse(fs2.readFileSync(f));}catch{return {};}};
+  const save2=(f,o)=>{fs2.writeFileSync(f,JSON.stringify(o));};
+  let ids=load('grupos_ids.json');
+  if(!ids[from]){
+    let n=Object.keys(ids).length+1;
+    let novo='SUKUNA-'+String(n).padStart(3,'0');
+    // garante que não repete
+    while(Object.values(ids).includes(novo)){ n++; novo='SUKUNA-'+String(n).padStart(3,'0'); }
+    ids[from]=novo; save2('grupos_ids.json',ids);
+  }
+  await sock.sendMessage(from,{text:'🆔 *ID DESTE GRUPO*\n\n━━━━━━━━━━━━━━\n\n👑 *'+ids[from]+'*\n\n📍 Grupo: '+from+'\n\nGuarda este ID, é único deste grupo!'}, {quoted:m});
+  return;
+ }catch(e){console.log('ID ERRO',e.message);}
+ return;
+}

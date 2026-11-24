@@ -1,0 +1,46 @@
+// ATIVACAO_TOPO - TRAVA TUDO SE NAO ATIVADO
+if(isGroup){
+ try{
+  const fsA=require('fs');
+  let gAt={};
+  try{gAt=JSON.parse(fsA.readFileSync('grupos.json'));}catch{}
+  if(typeof gruposAtivos!=='undefined') gAt=gruposAtivos;
+  let isDonoA = String(senderNum||'').endsWith('865697467') || (typeof DONOS!=='undefined' && DONOS.includes(senderNum));
+  let ativoA = gAt[from] && gAt[from].ate && gAt[from].ate > Date.now();
+  let txtA = String(texto||'').toLowerCase().trim();
+  // COMANDOS DO DONO - sempre deixam passar
+  if(cmd==='.ativar'||cmd==='!ativar'){
+   if(!isDonoA){await sock.sendMessage(from,{text:'❌ *Só o Dono pode ativar!*\n\n👑 *Mário Oficialz* 📞 865679467'},{quoted:m});return;}
+   let dias=parseInt(String(texto||'').split(' ')[1]||'0');
+   if(!dias){await sock.sendMessage(from,{text:'❌ Usa assim: *.ativar 5*'},{quoted:m});return;}
+   gAt[from]={ate:Date.now()+dias*24*60*60*1000,dias:dias};
+   fsA.writeFileSync('grupos.json',JSON.stringify(gAt));
+   if(typeof gruposAtivos!=='undefined') gruposAtivos=gAt;
+   await sock.sendMessage(from,{text:'✅ *GRUPO ATIVADO!* 🎉\n\n━━━━━━━━━━━━━━\n📅 *Dias:* '+dias+' dias\n⏰ *Até:* '+new Date(gAt[from].ate).toLocaleString('pt-MZ')+'\n👑 *Ativado por:* Mário Oficialz\n━━━━━━━━━━━━━━\n\n✨ *SUKUNA MESTRE já está a funcionar!* 🔥'},{quoted:m});
+   return;
+  }
+  if(cmd==='.desativar'||cmd==='!desativar'){
+   if(!isDonoA){await sock.sendMessage(from,{text:'❌ *Só o Dono pode desativar!*'},{quoted:m});return;}
+   delete gAt[from]; fsA.writeFileSync('grupos.json',JSON.stringify(gAt));
+   if(typeof gruposAtivos!=='undefined') gruposAtivos=gAt;
+   await sock.sendMessage(from,{text:'🔴 *GRUPO DESATIVADO!*\n\n> *SUKUNA parou neste grupo.*'},{quoted:m});
+   return;
+  }
+  if(cmd==='.status'||cmd==='!status'){
+   if(ativoA){
+    let falta=Math.ceil((gAt[from].ate-Date.now())/86400000);
+    await sock.sendMessage(from,{text:'✅ *GRUPO ATIVO - SUKUNA MESTRE* ✅\n\n━━━━━━━━━━━━━━\n📅 *Dias que faltam:* '+falta+' dias\n⏰ *Até:* '+new Date(gAt[from].ate).toLocaleString('pt-MZ')+'\n👑 *Dono:* Mário Oficialz\n📞 *WhatsApp:* 865679467\n━━━━━━━━━━━━━━\n\n✨ *Aproveita, o MESTRE está ON!* 🔥'},{quoted:m});
+   }else{
+    await sock.sendMessage(from,{text:'🔴 *GRUPO NÃO ATIVADO* 🔴\n\n━━━━━━━━━━━━━━\n> *Este grupo ainda não está ativado!*\n\n📱 *Pede ativação ao Mário Oficialz*\n📞 *WhatsApp:* 865679467\n━━━━━━━━━━━━━━\n\n👑 *SUKUNA MESTRE*'},{quoted:m});
+   }
+   return;
+  }
+  // TRAVA - se não está ativo, NADA funciona, só dono
+  if(!ativoA && !isDonoA){
+   if(cmd.startsWith('.')||cmd.startsWith('!')||['tabela','pagamento','menu','megas','comprar','preco','pacote'].includes(cmd)){
+    await sock.sendMessage(from,{text:'🔒 *SUKUNA MESTRE BLOQUEADO!* 🔒\n\n━━━━━━━━━━━━━━\n> *Este grupo não está ativado!*\n\n📱 *Pede ativação ao Mário Oficialz*\n📞 *WhatsApp:* 865679467\n━━━━━━━━━━━━━━\n\n👑 *SUKUNA MESTRE*'},{quoted:m});
+    return;
+   }
+  }
+ }catch(e){console.log('ATIVACAO ERRO',e.message);}
+}
